@@ -1,1 +1,5 @@
 *.jar
+/SDLJava.class
+/testsdl.class
+.classpath
+.project

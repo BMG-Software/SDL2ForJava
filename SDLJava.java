@@ -22,4 +22,21 @@ public interface SDLJava extends Library
 	public String SDLGetError();
 	
 	
+	public PointerByReference SDLLoadBMP(String filename);
+	public void SDLFreeSurface(PointerByReference surface);
+	
+	public PointerByReference SDLCreateTextureFromSurface(PointerByReference renderer, PointerByReference surface);
+	public void SDLDestroyTexture(PointerByReference texture);
+	
+	public int SDLRenderCopy(PointerByReference renderer, PointerByReference texture, PointerByReference src, PointerByReference dst);
+	
+	public PointerByReference SDLCreateRect(int x, int y, int w, int h);
+	public void SDLDestroyRect(PointerByReference rect);
+	
+	public PointerByReference SDLCreateEvent();
+	public void SDLDestroyEvent(PointerByReference event);
+	
+	public int SDLPollEvent(PointerByReference event);
+	public int SDLCheckEventType(PointerByReference event, int type);
+	
 }
