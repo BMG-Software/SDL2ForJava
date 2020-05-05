@@ -27,14 +27,15 @@ public interface SDLJava extends Library
 	public String SDL_GetError();
 	
 	
-	public PointerByReference SDL_LoadBMP(String filename);
+	/*public PointerByReference SDL_LoadBMP(String filename);
 	public void SDL_FreeSurface(PointerByReference surface);
 	
 	public PointerByReference SDL_CreateTextureFromSurface(PointerByReference renderer, PointerByReference surface);
 	public void SDL_DestroyTexture(PointerByReference texture);
 	
 	public int SDL_RenderCopy(PointerByReference renderer, PointerByReference texture, PointerByReference src, PointerByReference dst);
+	*/
 	
-	public int SDL_PollEvent(PointerByReference event);
+	public int SDL_PollEvent(SDL_Event event);
 	
 }

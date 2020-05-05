@@ -1,3 +1,4 @@
+SDL2.dll
 *.jar
 /SDLJava.class
 /testsdl.class
@@ -6,3 +7,6 @@
 /SDL.class
 /SDL_Window.class
 /SDL_Renderer.class
+/SDL_Rect.class
+/SDL_EventType.class
+/SDL_Event.class

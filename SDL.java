@@ -123,4 +123,9 @@ public class SDL
 		return m_SDLInstance.SDL_GetError();
 	}
 
+	public int PollEvent(SDL_Event event)
+	{
+		return m_SDLInstance.SDL_PollEvent(event);
+	}
+	
 }
