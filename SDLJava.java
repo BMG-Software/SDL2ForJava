@@ -4,39 +4,37 @@ import com.sun.jna.ptr.*;
 
 public interface SDLJava extends Library
 {
+
+	public int SDL_Init(int flags);
+	public int SDL_InitSubSystem(int flags);
 	
-	public int SDLInit(int flags);
-	public void SDLQuit();
+	public void SDL_Quit();
+	public void SDL_QuitSubSystem(int flags);
 	
-	public PointerByReference SDLCreateWindow(String title, int x, int y, int w, int h, int flags);
-	public PointerByReference SDLCreateRenderer(PointerByReference window, int index, int flags);
+	public void SDL_WasInit(int flags);
 	
-	public void SDLDestroyWindow(PointerByReference window);
-	public void SDLDestroyRenderer(PointerByReference renderer);
+	public SDL_Window SDL_CreateWindow(String title, int x, int y, int w, int h, int flags);
+	public SDL_Renderer SDL_CreateRenderer(SDL_Window window, int index, int flags);
 	
-	public int SDLSetRenderDrawColour(PointerByReference renderer, int r, int g, int b, int a);
+	public void SDL_DestroyWindow(SDL_Window window);
+	public void SDL_DestroyRenderer(SDL_Renderer renderer);
 	
-	public void SDLRenderClear(PointerByReference renderer);
-	public void SDLRenderPresent(PointerByReference renderer);
+	public int SDL_SetRenderDrawColor(SDL_Renderer renderer, int r, int g, int b, int a);
 	
-	public String SDLGetError();
+	public void SDL_RenderClear(SDL_Renderer renderer);
+	public void SDL_RenderPresent(SDL_Renderer renderer);
+	
+	public String SDL_GetError();
 	
 	
-	public PointerByReference SDLLoadBMP(String filename);
-	public void SDLFreeSurface(PointerByReference surface);
+	public PointerByReference SDL_LoadBMP(String filename);
+	public void SDL_FreeSurface(PointerByReference surface);
 	
-	public PointerByReference SDLCreateTextureFromSurface(PointerByReference renderer, PointerByReference surface);
-	public void SDLDestroyTexture(PointerByReference texture);
+	public PointerByReference SDL_CreateTextureFromSurface(PointerByReference renderer, PointerByReference surface);
+	public void SDL_DestroyTexture(PointerByReference texture);
 	
-	public int SDLRenderCopy(PointerByReference renderer, PointerByReference texture, PointerByReference src, PointerByReference dst);
+	public int SDL_RenderCopy(PointerByReference renderer, PointerByReference texture, PointerByReference src, PointerByReference dst);
 	
-	public PointerByReference SDLCreateRect(int x, int y, int w, int h);
-	public void SDLDestroyRect(PointerByReference rect);
-	
-	public PointerByReference SDLCreateEvent();
-	public void SDLDestroyEvent(PointerByReference event);
-	
-	public int SDLPollEvent(PointerByReference event);
-	public int SDLCheckEventType(PointerByReference event, int type);
+	public int SDL_PollEvent(PointerByReference event);
 	
 }

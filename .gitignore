@@ -3,3 +3,6 @@
 /testsdl.class
 .classpath
 .project
+/SDL.class
+/SDL_Window.class
+/SDL_Renderer.class
