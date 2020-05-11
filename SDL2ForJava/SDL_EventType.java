@@ -1,4 +1,6 @@
 
+package SDL2ForJava;
+
 public class SDL_EventType
 {
 	

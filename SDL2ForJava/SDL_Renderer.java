@@ -1,4 +1,5 @@
 
+package SDL2ForJava;
 
 import com.sun.jna.ptr.*;
 

@@ -1,6 +1,8 @@
 
+package SDL2ForJava;
+
 import com.sun.jna.Library;
-import com.sun.jna.ptr.*;
+import com.sun.jna.ptr.PointerByReference;
 
 public interface SDLJava extends Library
 {
@@ -26,15 +28,16 @@ public interface SDLJava extends Library
 	
 	public String SDL_GetError();
 	
+	public PointerByReference SDL_RWFromFile(String file, String mode);
+	public SDL_Surface SDL_LoadBMP_RW(PointerByReference src, int freesrc);
 	
-	/*public PointerByReference SDL_LoadBMP(String filename);
-	public void SDL_FreeSurface(PointerByReference surface);
 	
-	public PointerByReference SDL_CreateTextureFromSurface(PointerByReference renderer, PointerByReference surface);
-	public void SDL_DestroyTexture(PointerByReference texture);
+	public void SDL_FreeSurface(SDL_Surface surface);
 	
-	public int SDL_RenderCopy(PointerByReference renderer, PointerByReference texture, PointerByReference src, PointerByReference dst);
-	*/
+	public SDL_Texture SDL_CreateTextureFromSurface(SDL_Renderer renderer, SDL_Surface surface);
+	public void SDL_DestroyTexture(SDL_Texture texture);
+	
+	public int SDL_RenderCopy(SDL_Renderer renderer, SDL_Texture texture, SDL_Rect src, SDL_Rect dst);
 	
 	public int SDL_PollEvent(SDL_Event event);
 	

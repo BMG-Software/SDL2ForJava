@@ -1,6 +1,8 @@
 
-import com.sun.jna.Native;
+package SDL2ForJava;
 
+import com.sun.jna.Native;
+import com.sun.jna.ptr.PointerByReference;
 
 public class SDL 
 {
@@ -25,6 +27,8 @@ public class SDL
 	
 	public SDL()
 	{
+		// TODO: Set a few search path options		
+		System.setProperty("jna.library.path", "C:\\SDL2\\SDL2-2.0.9\\lib\\x64\\");
 		m_SDLInstance = (SDLJava)Native.loadLibrary("SDL2", SDLJava.class);
 	}
 
@@ -126,6 +130,32 @@ public class SDL
 	public int PollEvent(SDL_Event event)
 	{
 		return m_SDLInstance.SDL_PollEvent(event);
+	}
+	
+	public SDL_Surface LoadBMP(String filename)
+	{
+		PointerByReference rwops = m_SDLInstance.SDL_RWFromFile(filename, "rb");
+		return m_SDLInstance.SDL_LoadBMP_RW(rwops, 1);
+	}
+	
+	public void FreeSurface(SDL_Surface surface)
+	{
+		m_SDLInstance.SDL_FreeSurface(surface);
+	}
+	
+	public SDL_Texture CreateTextureFromSurface(SDL_Renderer renderer, SDL_Surface surface)
+	{
+		return m_SDLInstance.SDL_CreateTextureFromSurface(renderer, surface);
+	}
+	
+	public void DestroyTexture(SDL_Texture texture)
+	{
+		m_SDLInstance.SDL_DestroyTexture(texture);
+	}
+	
+	public int RenderCopy(SDL_Renderer renderer, SDL_Texture texture, SDL_Rect src, SDL_Rect dst)
+	{
+		return m_SDLInstance.SDL_RenderCopy(renderer, texture, src, dst);
 	}
 	
 }
